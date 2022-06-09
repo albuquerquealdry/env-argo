@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app-deployment
+  name: nginx-deployment
   labels:
-    app: app
+    app: nginx
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: app
+      app: nginx
   template:
     metadata:
       labels:
-        app: app
+        app: nginx
     spec:
       containers:
-      - name: app
-        image: aldry1303/argocdlab:1.0.0
+      - name: nginx
+        image: nginx:1.14.2
         ports:
         - containerPort: 80
